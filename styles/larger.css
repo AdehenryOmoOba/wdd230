@@ -1,0 +1,76 @@
+
+@media screen and (min-width: 600px) {
+  footer {
+    font-size: 12px; 
+    color: white;
+  }
+
+  header {
+    font-size: 10px; 
+  }
+
+  header img {
+    height: 7rem;
+  }
+
+  header .name  {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.6rem;
+  }
+
+  nav {
+    position: relative; 
+  }
+
+  #menu {
+      display: flex;
+      text-decoration: none;
+      color: white;
+      padding: 1rem 2rem;
+      transition: background-color 0.3s;
+  }
+
+  #hamburger-menu {
+    display: none; 
+  }
+  main {
+    padding: 20px; 
+    position: relative;
+    top: 0;
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+
+  .card-container {
+    flex-direction: row;
+    gap: 20px; 
+    list-style: none; 
+  }
+
+  .card {
+    margin-bottom: 20px; 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    list-style: none; 
+  }
+
+  .card h2 {
+    color: white;
+    margin-top: 0;
+    padding: 10px 20px; 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
+  }
+
+  .card:nth-child(2){
+      flex: 1;
+  }
+  .card:nth-child(1){
+      flex: 2;
+  }
+}

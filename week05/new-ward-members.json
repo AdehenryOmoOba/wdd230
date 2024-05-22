@@ -1,0 +1,12 @@
+{
+    "family_name": "Adelaja H. Adefemi",
+    "date_moved_in": "January 2, 2023",
+    "family_size": 4,
+    "visited_by_bishopric": true,
+    "family_members": [
+        {"name": "Adefemi H. Adelaja", "gender": "Male", "dob": "September 16, 1988"},
+        {"name": "Elizabeth B. Adelaja", "gender": "Female", "dob": "September 16, 1998"},
+        {"name": "Nephi H. Adelaja", "gender": "Male", "dob": "September 16, 2020"},
+        {"name": "Mary B. Adelaja", "gender": "Female", "dob": "September 16, 2022"}
+    ]
+}

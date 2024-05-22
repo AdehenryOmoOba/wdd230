@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD 230 - Web Frontend Development - Adefemi Henry Adelaja - Ido Chamber of Commerce">
+    <meta name="author" content="Adefemi Henry Adelaja">
+    <meta property="og:title" content="Ido Chamber Of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbJ_4-vDrdm4mAo0DoaJy9sGorL4hcItgrXYm9EDr9ag&s">
+    <meta property="og:url" content="https://adehenryomooba.github.io/wdd230/">
+    <meta property="og:description" content="Ido Chamber of Commerce website developed by Adefemi Henry Adelaja - WDD 230 - BYU-Idaho">
+    <title>Discover - WDD 230 - Web Frontend Development</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../styles//normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="logo">
+            <div class="name">
+                <h1 class="ido">Ido <br><span class="chamber">Chamber Of Commerce</span></h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./discover.html">Discover</a>
+                </li>
+                <li>
+                    <a href="/">Directory</a>
+                </li>
+                <li>
+                    <a href="./join.html">Join</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-toggle-container">
+            <button class="menu-toggle menu-open-btn active">&#9776;</button>
+            <button class="menu-toggle menu-close-btn">&#10005;</button>
+        </div>
+    </header>
+
+    <main class="discover-main">
+        <div class="sidebar">
+            <div class="sidebar-content visit">
+                <p>Hi 👋,</p>
+                <h3 class="visit-info"></h3>
+            </div>
+            <div class="sidebar-content ibadan-stat">
+                <h3>Ibadan Statistics</h3>
+                <p>- Population: 3,756,000</p>
+                <p>- Land Mass: 1,680 km²</p>
+            </div>
+            <div class="sidebar-content business-contact">
+                <h3>Business Contact</h3>
+                <p>- 📞: +234 (803) 1234</p>
+                <p>- 📧: ibadancontacts@gmail.com</p>
+            </div>
+            <div class="sidebar-content weather-info">
+                <h3>Weather Information</h3>
+                <p>Ibadan, Nigeria</p>
+                <p>Weather: 🌤️ 91&deg;F</p>
+            </div>
+            <div class="sidebar-content business-contact">
+                <h3>Business Contact</h3>
+                <p>- 📞: +234 (803) 1234</p>
+                <p>- 📧: ibadancontacts@gmail.com</p>
+            </div>
+            <div class="sidebar-content ibadan-stat">
+                <h3>Ibadan Statistics</h3>
+                <p>- Population: 3,756,000</p>
+                <p>- Land Mass: 1,680 km²</p>
+            </div>
+        </div>
+        <div class="main-content">
+          <div class="image-gallery">
+            <div class="overlay">
+                <img src="./images/agodi_gardens.webp" alt="Agodi Gardens"  data-caption="Agodi Gardens" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/alubarika.webp" alt="alubarika Area"  data-caption="Alubarika Area" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/goshen_resort.webp" alt="Goshen Resort"  data-caption="Goshen Resort" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/idiarere.webp" alt="idiarere Area"  data-caption="idiarere Area" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/kingsway.webp" alt="kingsway"  data-caption="kingsway" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/lekan_salami_stadium.webp" alt="Lekan Salami Stadium"  data-caption="Lekan Salami Stadium" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/mapo_hall.webp" alt="Mapo Hall"  data-caption="Mapo Hall" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/mokola_bridge.webp" alt="Mokola Bridge"  data-caption="Mokola Bridge" loading="lazy" width="700" height="400">
+            </div>
+            <div class="overlay">
+                <img src="./images/premier_hotel.webp" alt="Premier Hotel"  data-caption="Premier Hotel" loading="lazy" width="700" height="400">
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <div class="icon"><img src="./images/logo.png" alt=""></div>
+            <div class="address">
+                <h3>Ido<br>Chamber Of Commerce</h3>
+                <p>9 Ekekrin Street, Ido <br>Ibadan, Oyo State, Nigeria</p>
+            </div>
+        </div>
+        <div class="contact">
+            <p>info@idocc.org</p>
+            <p>+(234)-803-2345</p>
+            <p>🗺️ Location Map</p>
+        </div>
+        <div class="developer">
+            <p>&#169;<span class="year"></span> Ido Chamber</p>
+            <p>Adefemi H. Adelaja</p>
+            <p>WDD 230 Project</p>
+            <small class="lastModified"></small>
+        </div>
+    </footer>
+
+    <script src="./scripts/chamber.js"></script>
+</body>
+</html>
