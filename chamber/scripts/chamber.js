@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   let yearSpan = document.querySelector(".year");
+  const visitInfo = document.querySelector(".visit-info");
+  const lastVisit = localStorage.getItem("lastVisit");
+
   let lastModifiedParagraph = document.querySelector(".lastModified");
 
   let lastModified = new Date(document.lastModified);
@@ -20,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let year = new Date().getFullYear();
   yearSpan.textContent = year;
 
-  const visitInfo = document.querySelector(".visit-info");
-  const lastVisit = localStorage.getItem("lastVisit");
   const currentDate = Date.now();
   const oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
 
