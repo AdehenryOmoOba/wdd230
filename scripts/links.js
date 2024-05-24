@@ -12,8 +12,6 @@ getLinksData();
 const ul = document.getElementById("learning-activities");
 
 function displayLinks(weeks) {
-  console.log(weeks);
-
   const htmlFragment = document.createDocumentFragment();
 
   weeks.forEach((weekInfo) => {
