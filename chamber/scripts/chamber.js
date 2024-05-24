@@ -66,7 +66,8 @@ overlays.forEach((overlay) => {
 
 // Directory Page
 const imgContainer = document.querySelector(".image-container");
-const localURL = "http://127.0.0.1:5501/chamber/data/members.json";
+const localURL =
+  "https://adehenryomooba.github.io/wdd230/chamber/data/members.json";
 
 async function getMembers() {
   const response = await fetch(localURL);
