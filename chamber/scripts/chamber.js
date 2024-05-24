@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   let yearSpan = document.querySelector(".year");
-  const visitInfo = document.querySelector(".visit-info");
-  const lastVisit = localStorage.getItem("lastVisit");
+  let visitInfo = document.querySelector(".visit-info");
+  let lastVisit = localStorage.getItem("lastVisit");
 
   let lastModifiedParagraph = document.querySelector(".lastModified");
 
