@@ -5,8 +5,8 @@
 }
 
 body {
-    min-height: 150vh;
-    min-height: 150svh;
+    min-height: 100vh;
+    min-height: 100svh;
     width: 100dvw;
     background-color: #f1eded;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -82,12 +82,16 @@ nav ul li{
     background-color: white;
 }
 
-nav ul li a{
+nav ul li a, .cta a{
     text-decoration: none;
     font-weight: 900;
     font-size: 1rem;
     color: #232323;
     padding-block: 1rem;
+}
+
+.cta a{
+  color: white;
 }
 
 .menu-toggle{
@@ -132,6 +136,8 @@ main{
 
 .cta{
     position: absolute;
+    display: grid;
+    place-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -484,6 +490,48 @@ main, footer{
     font-size: 1.6rem;
   }
 
+  /* Directory page  */
+  .directory-main{
+    padding: 1rem;
+    display: grid;
+    place-content: center;
+  }
+
+  .toggle{
+   width: max-content;
+   margin-inline: auto;
+   display: flex;
+   gap: 2rem;
+  }
+
+  .toggle button{
+    margin-block: 2rem;
+    width: max-content;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
   
+  .image-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    min-height: 100vh;
+    width: 95vw;
+    max-width: 1200px;
+    margin-inline: auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .card{
+    /* height: 300px; */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+
+  .card img{
+    width: 100%;
+    height: 100%;
+  }
+
 
 
