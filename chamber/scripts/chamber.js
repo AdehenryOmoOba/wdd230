@@ -67,6 +67,7 @@ overlays.forEach((overlay) => {
 
 // Directory Page
 const imgContainer = document.querySelector(".image-container");
+// const imgContainer = document.querySelector(".member-info");
 const localURL =
   "https://adehenryomooba.github.io/wdd230/chamber/data/members.json";
 
@@ -82,20 +83,48 @@ getMembers();
 function display(members) {
   const fragment = document.createDocumentFragment();
 
+  const overlay = `<div class="member-info">
+                     <button class="more-info">More info</button>
+                   </div>`;
+
   members.forEach((member) => {
     const div = document.createElement("div");
     const img = document.createElement("img");
 
     div.setAttribute("class", "card");
-    img.setAttribute("src", member.imgURL);
+    img.setAttribute(
+      "src",
+      `${member.imgURL}?name=${encodeURIComponent(
+        member.name
+      )}&address=${encodeURIComponent(
+        member.address
+      )}&telephone=${encodeURIComponent(
+        member.telephone
+      )}&website=${encodeURIComponent(
+        member.website
+      )}&imgURL=${encodeURIComponent(
+        member.imgURL
+      )}&membershipLevel=${encodeURIComponent(member.membershipLevel)}`
+    );
     img.setAttribute("alt", member.name);
     img.setAttribute("width", "300px");
     img.setAttribute("height", "300px");
 
+    div.innerHTML = overlay;
     div.appendChild(img);
 
     fragment.appendChild(div);
   });
 
   imgContainer.appendChild(fragment);
+
+  document.querySelectorAll(".more-info").forEach((button) => {
+    button.addEventListener("click", () => {
+      const imgURLData = button.parentElement.parentElement
+        .querySelector("img")
+        .getAttribute("src")
+        .split("?")[1];
+      window.location.href = `directory-info.html?${imgURLData}`;
+    });
+  });
 }
