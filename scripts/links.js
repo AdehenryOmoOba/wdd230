@@ -1,4 +1,4 @@
-const linksURL = "/data/links.json";
+const linksURL = "data/links.json";
 
 async function getLinksData() {
   const response = await fetch(linksURL);
