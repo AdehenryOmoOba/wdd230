@@ -509,10 +509,26 @@ main, footer{
   }
 
   .toggle button{
+    position: relative;
     margin-block: 2rem;
     width: max-content;
     padding: 1rem 2rem;
     cursor: pointer;
+  }
+
+  .toggle button.active::after{
+    position: absolute;
+    display: grid;
+    place-content: center;
+    content: "✔️";
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #c8c8f3;
+    border-radius: 50%;
+    top: -0.75rem;
+    right: -0.75rem;
+    font-size: 0.8rem;
+
   }
   
   .image-container{
