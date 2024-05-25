@@ -1,7 +1,11 @@
+let viewStyle = "";
+
 document.addEventListener("DOMContentLoaded", function () {
   let yearSpan = document.querySelector(".year");
   let visitInfo = document.querySelector(".visit-info");
   let lastVisit = localStorage.getItem("lastVisit");
+
+  viewStyle = window.localStorage.getItem("view_style") || "grid";
 
   let lastModifiedParagraph = document.querySelector(".lastModified");
 
@@ -71,32 +75,53 @@ const directoryMain = document.querySelector(".directory-main");
 const gridBtn = document.querySelector(".grid");
 const listBtn = document.querySelector(".list");
 
+if (viewStyle === "grid") gridBtn.classList.add("active");
+if (viewStyle === "list") listBtn.classList.add("active");
+
+console.log({ viewStyle });
+
 const localURL =
   "https://adehenryomooba.github.io/wdd230/chamber/data/members.json";
 
-async function getMembers(displayType = "grid") {
+async function getMembers() {
   const response = await fetch(localURL);
   const data = await response.json();
 
-  if (displayType === "grid") displayGrid(data.members);
-  if (displayType === "list") displayList(data.members);
+  console.log({ viewStyle });
+
+  if (viewStyle === "grid") displayGrid(data.members);
+  if (viewStyle === "list") displayList(data.members);
 }
 
 getMembers();
 
-document
-  .querySelector(".grid")
-  .addEventListener("click", () => getMembers("grid"));
+gridBtn.addEventListener("click", () => {
+  if (!gridBtn.classList.contains("active")) {
+    gridBtn.classList.add("active");
+    listBtn.classList.remove("active");
 
-document
-  .querySelector(".list")
-  .addEventListener("click", () => getMembers("list"));
+    viewStyle = "grid";
+    getMembers();
+  }
+});
+
+listBtn.addEventListener("click", () => {
+  if (!listBtn.classList.contains("active")) {
+    listBtn.classList.add("active");
+    gridBtn.classList.remove("active");
+
+    viewStyle = "list";
+    getMembers();
+  }
+});
 
 function displayGrid(members) {
   const grid = document.querySelector(".image-container");
   const list = document.querySelector(".company-list");
 
   if (grid) return;
+
+  window.localStorage.setItem("view_style", "grid");
 
   const imgContainer = document.createElement("div");
   imgContainer.setAttribute("class", "image-container");
@@ -152,12 +177,12 @@ function displayGrid(members) {
 }
 
 function displayList(member) {
-  console.log("Display list...");
-
   const list = document.querySelector(".company-list");
   const grid = document.querySelector(".image-container");
 
   if (list) return;
+
+  window.localStorage.setItem("view_style", "list");
 
   const buttons = `<div class="toggle">
                     <button class="grid">Grid View</button>
@@ -181,14 +206,13 @@ function displayList(member) {
 
   listContainer.innerHTML = listItems;
 
-  directoryMain.removeChild(grid);
+  if (grid) directoryMain.removeChild(grid);
 
   directoryMain.appendChild(listContainer);
 
   document
     .querySelectorAll(".company-details")
     .forEach((companyDetail, index) => {
-      console.log("member name", member[index].name);
       companyDetail.children[0].textContent = member[index].name;
       companyDetail.children[1].textContent = member[index].telephone;
       companyDetail.children[2].textContent = member[index].website;
@@ -207,6 +231,4 @@ function displayList(member) {
 
       companyDetail.children[2].setAttribute("href", linkHref);
     });
-
-  console.log(directoryMain.children);
 }
