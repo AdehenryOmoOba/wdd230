@@ -31,10 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     const daysSinceLastVisit = Math.round((currentDate - lastVisit) / oneDay);
     if (daysSinceLastVisit === 0) {
-      visitInfo.textContent = "Back so soon! Awesome!";
+      if (visitInfo) visitInfo.textContent = "Back so soon! Awesome!";
     } else {
       const message = daysSinceLastVisit === 1 ? "day" : "days";
-      visitInfo.textContent = `You last visited ${daysSinceLastVisit} ${message} ago.`;
+      if (visitInfo)
+        visitInfo.textContent = `You last visited ${daysSinceLastVisit} ${message} ago.`;
     }
   }
 
@@ -66,21 +67,40 @@ overlays.forEach((overlay) => {
 });
 
 // Directory Page
-const imgContainer = document.querySelector(".image-container");
-// const imgContainer = document.querySelector(".member-info");
+const directoryMain = document.querySelector(".directory-main");
+const gridBtn = document.querySelector(".grid");
+const listBtn = document.querySelector(".list");
+
 const localURL =
   "https://adehenryomooba.github.io/wdd230/chamber/data/members.json";
 
-async function getMembers() {
+async function getMembers(displayType = "grid") {
   const response = await fetch(localURL);
   const data = await response.json();
 
-  display(data.members);
+  if (displayType === "grid") displayGrid(data.members);
+  if (displayType === "list") displayList(data.members);
 }
 
 getMembers();
 
-function display(members) {
+document
+  .querySelector(".grid")
+  .addEventListener("click", () => getMembers("grid"));
+
+document
+  .querySelector(".list")
+  .addEventListener("click", () => getMembers("list"));
+
+function displayGrid(members) {
+  const grid = document.querySelector(".image-container");
+  const list = document.querySelector(".company-list");
+
+  if (grid) return;
+
+  const imgContainer = document.createElement("div");
+  imgContainer.setAttribute("class", "image-container");
+  imgContainer.setAttribute("id", "image-container");
   const fragment = document.createDocumentFragment();
 
   const overlay = `<div class="member-info">
@@ -117,6 +137,8 @@ function display(members) {
   });
 
   imgContainer.appendChild(fragment);
+  if (list) directoryMain.removeChild(list);
+  directoryMain.appendChild(imgContainer);
 
   document.querySelectorAll(".more-info").forEach((button) => {
     button.addEventListener("click", () => {
@@ -127,4 +149,64 @@ function display(members) {
       window.location.href = `directory-info.html?${imgURLData}`;
     });
   });
+}
+
+function displayList(member) {
+  console.log("Display list...");
+
+  const list = document.querySelector(".company-list");
+  const grid = document.querySelector(".image-container");
+
+  if (list) return;
+
+  const buttons = `<div class="toggle">
+                    <button class="grid">Grid View</button>
+                    <button class="list">List View</button>
+                 </div>`;
+
+  const listItem = `<li class="company-item">
+                      <div class="company-details">
+                        <strong></strong>
+                        <p></p>
+                        <a></a>
+                      </div>
+                   </li>`;
+
+  const listContainer = document.createElement("ul");
+  listContainer.setAttribute("class", "company-list");
+
+  let listItems = "";
+
+  member.forEach(() => (listItems += listItem));
+
+  listContainer.innerHTML = listItems;
+
+  directoryMain.removeChild(grid);
+
+  directoryMain.appendChild(listContainer);
+
+  document
+    .querySelectorAll(".company-details")
+    .forEach((companyDetail, index) => {
+      console.log("member name", member[index].name);
+      companyDetail.children[0].textContent = member[index].name;
+      companyDetail.children[1].textContent = member[index].telephone;
+      companyDetail.children[2].textContent = member[index].website;
+
+      const linkHref = `directory-info.html?name=${encodeURIComponent(
+        member[index].name
+      )}&address=${encodeURIComponent(
+        member[index].address
+      )}&telephone=${encodeURIComponent(
+        member[index].telephone
+      )}&website=${encodeURIComponent(
+        member[index].website
+      )}&imgURL=${encodeURIComponent(
+        member[index].imgURL
+      )}&membershipLevel=${encodeURIComponent(member[index].membershipLevel)}`;
+
+      companyDetail.children[2].setAttribute("href", linkHref);
+    });
+
+  console.log(directoryMain.children);
 }
