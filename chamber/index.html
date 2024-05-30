@@ -45,6 +45,10 @@
             <button class="menu-toggle menu-close-btn">&#10005;</button>
         </div>
     </header>
+    <div id="banner" class="banner">
+        <span>Join us for the Chamber of Commerce Meet and Greet on Wednesday at 7:00 p.m.</span>
+        <button id="closeBanner" class="close-button">Close ❌</button>
+    </div>
     <main>
         <section class="hero">
             <img class="bg-image" src="./images/trade2.jpeg" alt="">
@@ -80,45 +84,32 @@
                 <p class="weather-p">Weather</p>
                 <div class="weather-sign">
                   <div class="sign">
-                    <p>🌤️</p>
+                    <img src="./images/weather_icon.png" alt="default weather icon" id="weather-icon">
                   </div>
                   <div class="weather-info">
-                    <p>33&deg;C</p>
-                    <p>Partly Cloudy</p>
+                    <p id="current-temp"></p>
+                    <p class="weather-desc"></p>
                   </div>
                 </div>
                 <div class="humidity">
                     <p>Humidity:</p>
-                    <p>35%</p>
+                    <p class="humidity-p"></p>
                 </div>
                 <div class="wind-chill">
-                    <p>Wind Chill:</p>
-                    <p>25&deg;C</p>
+                    <p>Feels Like:</p>
+                    <p class="feels-like"></p>
+                </div>
+                <div class="forecast">
+                    <p>3 Days Forecast:</p>
+                    <div class="forecast-days">
+                        <p class="day-one"></p>
+                        <p class="day-two"></p>
+                        <p class="day-three"></p>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="member-spotlights">
-            <div class="members">
-                <h3>Thankful Transport</h3>
-                <p>"We get it there for you!"</p>
-                <p>hello@thankfultransport.com</p>
-                <p>+1-2323-233334443</p>
-                <p>www.thankfultransport.com</p>
-            </div>
-            <div class="members">
-                <h3>Code Primera</h3>
-                <p>After school coding!</p>
-                <p>contact@codeprimera.com</p>
-                <p>+1-3455-300099888</p>
-                <p>www.codeprimera.com</p>
-            </div>
-            <div class="members">
-                <h3>Build A Treefort</h3>
-                <p>Over 1000 plans!</p>
-                <p>build@treefort.com</p>
-                <p>+81-3423-444555666</p>
-                <p>www.treefort.com</p>
-            </div>
         </section>
     </main>
     <footer>
@@ -143,5 +134,6 @@
     </footer>
 
     <script src="./scripts/chamber.js"></script>
+    <script src="./scripts/weatherForecast.js"></script>
 </body>
 </html>
