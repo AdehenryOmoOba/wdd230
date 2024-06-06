@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   viewStyle = window.localStorage.getItem("view_style") || "grid";
 
   if (viewStyle === "grid") {
-    document.querySelector(".grid").classList.add("active");
+    document.querySelector(".grid")?.classList.add("active");
   }
   if (viewStyle === "list") {
     document.querySelector(".list")?.classList.add("active");
@@ -165,8 +165,8 @@ function displayGrid(members) {
   });
 
   imgContainer.appendChild(fragment);
-  if (list) directoryMain.removeChild(list);
-  directoryMain.appendChild(imgContainer);
+  if (list) directoryMain?.removeChild(list);
+  directoryMain?.appendChild(imgContainer);
 
   document.querySelectorAll(".more-info").forEach((button) => {
     button.addEventListener("click", () => {
