@@ -69,7 +69,7 @@ const dayCount = 3;
 const appid = "b92da245303a816497b90a4eeb90ddf5";
 
 const forecastURL =
-  "http://api.weatherapi.com/v1/forecast.json?q=7.34,3.84&days=3&key=25904d312a5a4a95ab0225050242805&hour=12";
+  "https://api.weatherapi.com/v1/forecast.json?q=7.34,3.84&days=3&key=25904d312a5a4a95ab0225050242805&hour=12";
 
 const currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.lat}&lon=${coord.lon}&appid=b92da245303a816497b90a4eeb90ddf5&units=metric`;
 
