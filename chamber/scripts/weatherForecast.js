@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showBannerOnSpecificDays();
 });
 
-const membersLocalURL = "chamber/data/members.json";
+const membersLocalURL = "/chamber/data/members.json";
 
 async function getMembers() {
   const response = await fetch(membersLocalURL);
